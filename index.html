@@ -1,0 +1,146 @@
+<!doctype html>
+<html style="width: 1024px; height: 768px; position: relative;">
+<head>
+<meta charset="utf-8">
+<title>Layout Tester</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pep/0.4.0/jquery.pep.min.js"> </script>	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"> </script>
+<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+
+<body style="width: 1024px; height: 768px; background: #7C5152; overflow: hidden;">
+	
+	<div class="preLoader">
+		<img src="preLoader.gif">
+		<p class="preText">LOADING...</p>
+	</div>	
+	
+	<div class="background"></div>
+
+	<div class="crumbsHolder">
+		<div class="crumbs crumb01"></div>
+		<div class="crumbs crumb02"></div>
+		<div class="crumbs crumb03"></div>
+		<div class="crumbs crumb04"></div>
+	</div>
+
+	<header style="height: 12%; width: 100%; background:#72B033; position: relative; z-index: 10;">
+		<div class="light" id="l1"></div>
+		<div class="light" id="l2"></div>
+		<div class="light" id="l3"></div>
+		<div class="light" id="l4"></div>
+		<div class="light" id="l5"></div>
+		<div class="light" id="l6"></div>
+		<div class="light" id="l7"></div>
+		<div class="light" id="l8"></div>
+		<div class="light" id="l9"></div>
+		<div class="light" id="l10"></div>
+	</header>
+
+	<container id="left" style="float: left; width: 45%; height: 88%; position: relative; margin-top: -3%;">
+		<div style="background:rgba(150, 150, 150, 0.3); height: 85%; width: 80%; margin: 15% 10% 0">
+			<div class="santaArt face"> <img style="width: 100%;" src="Santa-art/Santa-face.png"> </div>
+			<div class="santaArt stache"> <img style="width: 100%;" src="Santa-art/Santa-stache.png"> </div>
+			<div class="santaArt brows"> <img style="width: 100%;" src="Santa-art/Santa-brow.png"> </div>
+			<div class="santaArt mouth"> <img style="width: 100%;" src="Santa-art/Santa-mouf.png"> </div>		
+		</div>
+	</container>
+	
+	<container id="right"  style="float: right; width: 55%; height: 88%; background:#23232b; position: relative; margin-top: -3%;">
+		<div id="menu1" style="background:purple; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; ">
+			<div class="mbutton1" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
+			<div class="mbutton2" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
+			<div class="mbutton3" style="margin: 0% 35%; background-color: #6C1618; float: left; width: 30%; height: 40%"></div>
+		</div>
+		
+		<div id="menu2" style="background:blue; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; "></div>
+		
+		<div id="menu3" style="background:green; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; "></div>
+	</container>
+
+	<footer style="height: 0%; width: 80%; margin-left: 10%; position: absolute; bottom: 0px; background:#110BAA"> 
+				<center> <div class="cookie"></div> </center>
+	</footer>
+
+	<style>
+	
+		* {margin: 0; padding: 0;}
+		
+		.preLoader { position: absolute; z-index: 50; height: 100%; width: 100%; background-color: white;}
+		.preText { left: 50%; top: 50%; font-size: 48px; opacity: 0; position: absolute; transform: translate(-50%, -50%); font-family: 'VT323', monospace;}
+		.preLoader img { top: 50%; left: 50%; transform: translate(-50%, -30%); position: absolute; opacity:0;}
+		
+		.light { height: 150px; width: 50px; background:#D4D322; margin: 0 2.5%; float: left; top: 0px; }
+		
+		.cookie { height: 200px; width: 350px; background-color: brown; margin-top: -50px}
+		.crumbsHolder { height: 768px; width: 1024px; position: absolute;  display: none; z-index: 1000; pointer-events: none;}
+		.crumbs { height: 100px; width: 100px; background-color: brown ; border-radius: 100%; position: absolute; pointer-events: all;}
+		.crumb01 { top: 15%; left: 65%; }
+		.crumb02 { top: 70%; left: 5%; }
+		.crumb03 { top: 45%; left: 25%; }
+		.crumb04 { top: 85%; left: 80%; }
+		
+		.background {height: 100%; width: 100%; position: fixed; z-index: 0; background-image: url("xmas-bg.jpg"); background-repeat: repeat;}
+		
+		.santaArt { width: 100%; height: 100%; position: absolute; }
+		.face { z-index: 5; }
+		.brows { z-index: 8;  }
+		.mouth { z-index: 6;  }
+		.stache { z-index: 7;  }
+	
+	</style>
+	
+	<script>
+	
+		var tlPre = new TimelineMax({delay:0.5, onComplete:endPre});
+		var $preLoader = $('.preLoader');
+		var $preImg = $('.preLoader img');
+		var $preText = $('.preText')
+
+		 tlPre.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
+			.to($preText, 1, {autoAlpha:1, repeat:5, yoyo: true, ease: SteppedEase.config(4)})
+			.to($preImg, 1, {autoAlpha:0, ease: SteppedEase.config(4)})
+			.to($preLoader, 1, {autoAlpha:0, ease: SteppedEase.config(4)});
+		 
+		 function endPre() {
+			$preLoader.hide();
+			console.log("it's OVER!!!");
+		 }
+	
+		var $crumbs = $('.crumbs');
+	
+		$('.cookie').click(function(){
+			//TweenLite.to($('footer'), 1, { height: '0%' } ); 
+			$('.cookie').hide();
+			$('.crumbsHolder').show();
+			TweenMax.staggerFrom($crumbs, 0.9, {scale:2, y: '-300%', autoAlpha: 0, ease:Bounce.easeOut}, 0.2, pepCrumbs);
+		})
+		function pepCrumbs (){
+			$('.crumbs').pep();
+		}
+		$('#l7').click(function(){
+			TweenLite.to($('footer'), 1, { height: '10%' } ); 
+		})
+		
+		$('#l2').click(function(){
+			$('#menu1').css('display', 'block');
+			$('#menu2').css('display', 'none');
+			$('#menu3').css('display', 'none');
+		})
+		$('#l3').click(function(){
+			$('#menu1').css('display', 'none');
+			$('#menu2').css('display', 'block');
+			$('#menu3').css('display', 'none');
+		})
+		$('#l4').click(function(){
+			$('#menu1').css('display', 'none');
+			$('#menu2').css('display', 'none');
+			$('#menu3').css('display', 'block');
+		})
+	
+	</script>
+
+</body>
+</html>
