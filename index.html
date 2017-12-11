@@ -1,5 +1,5 @@
 <!doctype html>
-<html style="width: 1024px; height: 768px; position: relative;">
+<html style="width: 1024px; height: 768px; position: relative; overflow: hidden;">
 <head>
 <meta charset="utf-8">
 <title>Layout Tester</title>
@@ -26,42 +26,52 @@
 		<div class="crumbs crumb04"></div>
 	</div>
 
-	<header style="height: 12%; width: 100%; background:#72B033; position: relative; z-index: 10;">
-		<div class="light" id="l1"></div>
-		<div class="light" id="l2"></div>
-		<div class="light" id="l3"></div>
-		<div class="light" id="l4"></div>
-		<div class="light" id="l5"></div>
-		<div class="light" id="l6"></div>
-		<div class="light" id="l7"></div>
-		<div class="light" id="l8"></div>
-		<div class="light" id="l9"></div>
-		<div class="light" id="l10"></div>
+	<header>
+		<div class="lightClickableHolder">
+			<div class="lightClickable" id="l1" style="margin-left: 30px;"></div>
+			<div class="lightClickable" id="l2"></div>
+			<div class="lightClickable" id="l3"></div>
+			<div class="lightClickable" id="l4"></div>
+			<div class="lightClickable" id="l5"></div>
+			<div class="lightClickable" id="l6"></div>
+			<div class="lightClickable" id="l7"></div>
+			<div class="lightClickable" id="l8"></div>
+		</div>
+		<div class="lightHolder">
+			<div class="light blue" style="margin-left: 0px;"></div>
+			<div class="light red"></div>
+			<div class="light yellow"></div>
+			<div class="light green"></div>
+			<div class="light blue"></div>
+			<div class="light red"></div>
+			<div class="light yellow"></div>
+			<div class="light green"></div>
+		</div>
 	</header>
 
-	<container id="left" style="float: left; width: 45%; height: 88%; position: relative; margin-top: -3%;">
-		<div style="background:rgba(150, 150, 150, 0.3); height: 85%; width: 80%; margin: 15% 10% 0">
-			<div class="santaArt face"> <img style="width: 100%;" src="images/face.png"> </div>
-			<div class="santaArt stache"> <img style="width: 100%;" src="images/stache.png"> </div>
-			<div class="santaArt brows"> <img style="width: 100%;" src="images/brow.png"> </div>
-			<div class="santaArt mouth"> <img style="width: 100%;" src="images/mouf.png"> </div>		
+	<container id="left" >
+		<div class="santaFull" ">
+			<div class="santaArt face"> <img class="santaArt" style="height: auto !important ;" src="images/face.png"> </div>
+			<div class="santaArt stache"> <img class="santaArt" style="height: auto !important ;" src="images/stache.png"> </div>
+			<div class="santaArt brows"> <img class="santaArt" style="height: auto !important ;" src="images/brow.png"> </div>
+			<div class="santaArt mouth"> <img class="santaArt" style="height: auto !important ;" src="images/mouf.png"> </div>		
 		</div>
 	</container>
 	
-	<container id="right"  style="float: right; width: 55%; height: 88%; background:#23232b; position: relative; margin-top: -3%;">
-		<div id="menu1" style="background:purple; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; ">
+	<container id="right" >
+		<div class="menu menu1" >
 			<div class="mbutton1" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
 			<div class="mbutton2" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
 			<div class="mbutton3" style="margin: 0% 35%; background-color: #6C1618; float: left; width: 30%; height: 40%"></div>
 		</div>
 		
-		<div id="menu2" style="background:blue; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; "></div>
+		<div class="menu menu2" ></div>
 		
-		<div id="menu3" style="background:green; height: 90%; width: 90%; margin: 5%; display: none; position: absolute; "></div>
+		<div class="menu menu3" ></div>
 	</container>
 
-	<footer style="height: 0%; width: 80%; margin-left: 10%; position: absolute; bottom: 0px; background:#110BAA"> 
-				<center> <div class="cookie"></div> </center>
+	<footer> 
+		<center> <div class="cookie"></div> </center>
 	</footer>
 
 	<style>
@@ -72,7 +82,37 @@
 		.preText { left: 50%; top: 50%; font-size: 48px; opacity: 0; position: absolute; transform: translate(-50%, -50%); font-family: 'VT323', monospace;}
 		.preLoader img { top: 50%; left: 50%; transform: translate(-50%, -30%); position: absolute; opacity:0;}
 		
-		.light { height: 150px; width: 50px; background:#D4D322; margin: 0 2.5%; float: left; top: 0px; }
+		.light { 
+		  height: 10px;
+		  width: 10px;
+		  display: inline-block;
+		  margin-left: 110px;
+		} 
+		.lightHolder { display: inline-block; }
+		.lightClickable { width: 100px; height: 205px; margin-left: 20px; display: inline-block; cursor: pointer; }
+		.lightClickableHolder { position: absolute; }
+		.yellow { 
+		  box-shadow:  60px 10px 0 #4caf50, 70px 10px 0 #4caf50, 80px 10px 0 #4caf50, 90px 10px 0 #4caf50, 60px 20px 0 #4caf50, 70px 20px 0 #4caf50, 80px 20px 0 #4caf50, 90px 20px 0 #4caf50, 60px 30px 0 #4caf50, 70px 30px 0 #4caf50, 80px 30px 0 #4caf50, 90px 30px 0 #4caf50, 50px 40px 0 #ffc107, 60px 40px 0 #ffc107, 70px 40px 0 #ffc107, 80px 40px 0 #ffc107, 90px 40px 0 #ffc107, 100px 40px 0 #ffc107, 40px 50px 0 #ffc107, 50px 50px 0 #ffc107, 60px 50px 0 #ffc107, 70px 50px 0 #ffc107, 80px 50px 0 #ffc107, 90px 50px 0 #ffc107, 100px 50px 0 #ffc107, 110px 50px 0 #ffc107, 40px 60px 0 #ffc107, 50px 60px 0 #ffc107, 60px 60px 0 #ffc107, 70px 60px 0 #ffc107, 80px 60px 0 #ffc107, 90px 60px 0 #ffc107, 100px 60px 0 #ffc107, 110px 60px 0 #ffc107, 30px 70px 0 #ffc107, 40px 70px 0 #ffc107, 50px 70px 0 #ffc107, 60px 70px 0 #ffc107, 70px 70px 0 #ffc107, 80px 70px 0 #ffc107, 90px 70px 0 #ffeb3b, 100px 70px 0 #ffeb3b, 110px 70px 0 #ffc107, 120px 70px 0 #ffc107, 30px 80px 0 #ffc107, 40px 80px 0 #ffc107, 50px 80px 0 #ffc107, 60px 80px 0 #ffc107, 70px 80px 0 #ffc107, 80px 80px 0 #ffeb3b, 90px 80px 0 #ffeb3b, 100px 80px 0 #ffffff, 110px 80px 0 #ffeb3b, 120px 80px 0 #ffc107, 30px 90px 0 #ffc107, 40px 90px 0 #ffc107, 50px 90px 0 #ffc107, 60px 90px 0 #ffc107, 70px 90px 0 #ffc107, 80px 90px 0 #ffeb3b, 90px 90px 0 #ffffff, 100px 90px 0 #ffffff, 110px 90px 0 #ffeb3b, 120px 90px 0 #ffc107, 30px 100px 0 #ffc107, 40px 100px 0 #ffc107, 50px 100px 0 #ffc107, 60px 100px 0 #ffc107, 70px 100px 0 #ffc107, 80px 100px 0 #ffeb3b, 90px 100px 0 #ffffff, 100px 100px 0 #ffffff, 110px 100px 0 #ffeb3b, 120px 100px 0 #ffc107, 30px 110px 0 #ffc107, 40px 110px 0 #ffc107, 50px 110px 0 #ffc107, 60px 110px 0 #ffc107, 70px 110px 0 #ffc107, 80px 110px 0 #ffeb3b, 90px 110px 0 #ffeb3b, 100px 110px 0 #ffeb3b, 110px 110px 0 #ffeb3b, 120px 110px 0 #ffc107, 30px 120px 0 #ffc107, 40px 120px 0 #ffc107, 50px 120px 0 #ffc107, 60px 120px 0 #ffc107, 70px 120px 0 #ffc107, 80px 120px 0 #ffc107, 90px 120px 0 #ffeb3b, 100px 120px 0 #ffeb3b, 110px 120px 0 #ffc107, 120px 120px 0 #ffc107, 40px 130px 0 #ffc107, 50px 130px 0 #ffc107, 60px 130px 0 #ffc107, 70px 130px 0 #ffc107, 80px 130px 0 #ffc107, 90px 130px 0 #ffeb3b, 100px 130px 0 #ffeb3b, 110px 130px 0 #ffc107, 40px 140px 0 #ffc107, 50px 140px 0 #ffc107, 60px 140px 0 #ffc107, 70px 140px 0 #ffc107, 80px 140px 0 #ffc107, 90px 140px 0 #ffeb3b, 100px 140px 0 #ffeb3b, 110px 140px 0 #ffc107, 50px 150px 0 #ffc107, 60px 150px 0 #ffc107, 70px 150px 0 #ffc107, 80px 150px 0 #ffc107, 90px 150px 0 #ffc107, 100px 150px 0 #ffc107, 50px 160px 0 #ffc107, 60px 160px 0 #ffc107, 70px 160px 0 #ffc107, 80px 160px 0 #ffc107, 90px 160px 0 #ffc107, 100px 160px 0 #ffc107, 60px 170px 0 #ffc107, 70px 170px 0 #ffc107, 80px 170px 0 #ffc107, 90px 170px 0 #ffc107, 60px 180px 0 #ffc107, 70px 180px 0 #ffc107, 80px 180px 0 #ffc107, 90px 180px 0 #ffc107, 70px 190px 0 #ffc107, 80px 190px 0 #ffc107;
+		  } 
+		.red { 
+		box-shadow:  60px 10px 0 #4caf50, 70px 10px 0 #4caf50, 80px 10px 0 #4caf50, 90px 10px 0 #4caf50, 60px 20px 0 #4caf50, 70px 20px 0 #4caf50, 80px 20px 0 #4caf50, 90px 20px 0 #4caf50, 60px 30px 0 #4caf50, 70px 30px 0 #4caf50, 80px 30px 0 #4caf50, 90px 30px 0 #4caf50, 50px 40px 0 #ff0000, 60px 40px 0 #ff0000, 70px 40px 0 #ff0000, 80px 40px 0 #ff0000, 90px 40px 0 #ff0000, 100px 40px 0 #ff0000, 40px 50px 0 #ff0000, 50px 50px 0 #ff0000, 60px 50px 0 #ff0000, 70px 50px 0 #ff0000, 80px 50px 0 #ff0000, 90px 50px 0 #ff0000, 100px 50px 0 #ff0000, 110px 50px 0 #ff0000, 40px 60px 0 #ff0000, 50px 60px 0 #ff0000, 60px 60px 0 #ff0000, 70px 60px 0 #ff0000, 80px 60px 0 #ff0000, 90px 60px 0 #ff0000, 100px 60px 0 #ff0000, 110px 60px 0 #ff0000, 30px 70px 0 #ff0000, 40px 70px 0 #ff0000, 50px 70px 0 #ff0000, 60px 70px 0 #ff0000, 70px 70px 0 #ff0000, 80px 70px 0 #ff0000, 90px 70px 0 #e91e63, 100px 70px 0 #e91e63, 110px 70px 0 #ff0000, 120px 70px 0 #ff0000, 30px 80px 0 #ff0000, 40px 80px 0 #ff0000, 50px 80px 0 #ff0000, 60px 80px 0 #ff0000, 70px 80px 0 #ff0000, 80px 80px 0 #e91e63, 90px 80px 0 #e91e63, 100px 80px 0 #ffffff, 110px 80px 0 #e91e63, 120px 80px 0 #ff0000, 30px 90px 0 #ff0000, 40px 90px 0 #ff0000, 50px 90px 0 #ff0000, 60px 90px 0 #ff0000, 70px 90px 0 #ff0000, 80px 90px 0 #e91e63, 90px 90px 0 #ffffff, 100px 90px 0 #ffffff, 110px 90px 0 #e91e63, 120px 90px 0 #ff0000, 30px 100px 0 #ff0000, 40px 100px 0 #ff0000, 50px 100px 0 #ff0000, 60px 100px 0 #ff0000, 70px 100px 0 #ff0000, 80px 100px 0 #e91e63, 90px 100px 0 #ffffff, 100px 100px 0 #ffffff, 110px 100px 0 #e91e63, 120px 100px 0 #ff0000, 30px 110px 0 #ff0000, 40px 110px 0 #ff0000, 50px 110px 0 #ff0000, 60px 110px 0 #ff0000, 70px 110px 0 #ff0000, 80px 110px 0 #e91e63, 90px 110px 0 #e91e63, 100px 110px 0 #e91e63, 110px 110px 0 #e91e63, 120px 110px 0 #ff0000, 30px 120px 0 #ff0000, 40px 120px 0 #ff0000, 50px 120px 0 #ff0000, 60px 120px 0 #ff0000, 70px 120px 0 #ff0000, 80px 120px 0 #ff0000, 90px 120px 0 #e91e63, 100px 120px 0 #e91e63, 110px 120px 0 #ff0000, 120px 120px 0 #ff0000, 40px 130px 0 #ff0000, 50px 130px 0 #ff0000, 60px 130px 0 #ff0000, 70px 130px 0 #ff0000, 80px 130px 0 #ff0000, 90px 130px 0 #e91e63, 100px 130px 0 #e91e63, 110px 130px 0 #ff0000, 40px 140px 0 #ff0000, 50px 140px 0 #ff0000, 60px 140px 0 #ff0000, 70px 140px 0 #ff0000, 80px 140px 0 #ff0000, 90px 140px 0 #e91e63, 100px 140px 0 #e91e63, 110px 140px 0 #ff0000, 50px 150px 0 #ff0000, 60px 150px 0 #ff0000, 70px 150px 0 #ff0000, 80px 150px 0 #ff0000, 90px 150px 0 #ff0000, 100px 150px 0 #ff0000, 50px 160px 0 #ff0000, 60px 160px 0 #ff0000, 70px 160px 0 #ff0000, 80px 160px 0 #ff0000, 90px 160px 0 #ff0000, 100px 160px 0 #ff0000, 60px 170px 0 #ff0000, 70px 170px 0 #ff0000, 80px 170px 0 #ff0000, 90px 170px 0 #ff0000, 60px 180px 0 #ff0000, 70px 180px 0 #ff0000, 80px 180px 0 #ff0000, 90px 180px 0 #ff0000, 70px 190px 0 #ff0000, 80px 190px 0 #ff0000;
+		} 
+		.blue {
+		box-shadow:  60px 10px 0 #4caf50, 70px 10px 0 #4caf50, 80px 10px 0 #4caf50, 90px 10px 0 #4caf50, 60px 20px 0 #4caf50, 70px 20px 0 #4caf50, 80px 20px 0 #4caf50, 90px 20px 0 #4caf50, 60px 30px 0 #4caf50, 70px 30px 0 #4caf50, 80px 30px 0 #4caf50, 90px 30px 0 #4caf50, 50px 40px 0 #3f51b5, 60px 40px 0 #3f51b5, 70px 40px 0 #3f51b5, 80px 40px 0 #3f51b5, 90px 40px 0 #3f51b5, 100px 40px 0 #3f51b5, 40px 50px 0 #3f51b5, 50px 50px 0 #3f51b5, 60px 50px 0 #3f51b5, 70px 50px 0 #3f51b5, 80px 50px 0 #3f51b5, 90px 50px 0 #3f51b5, 100px 50px 0 #3f51b5, 110px 50px 0 #3f51b5, 40px 60px 0 #3f51b5, 50px 60px 0 #3f51b5, 60px 60px 0 #3f51b5, 70px 60px 0 #3f51b5, 80px 60px 0 #3f51b5, 90px 60px 0 #3f51b5, 100px 60px 0 #3f51b5, 110px 60px 0 #3f51b5, 30px 70px 0 #3f51b5, 40px 70px 0 #3f51b5, 50px 70px 0 #3f51b5, 60px 70px 0 #3f51b5, 70px 70px 0 #3f51b5, 80px 70px 0 #3f51b5, 90px 70px 0 #03a9f4, 100px 70px 0 #03a9f4, 110px 70px 0 #3f51b5, 120px 70px 0 #3f51b5, 30px 80px 0 #3f51b5, 40px 80px 0 #3f51b5, 50px 80px 0 #3f51b5, 60px 80px 0 #3f51b5, 70px 80px 0 #3f51b5, 80px 80px 0 #03a9f4, 90px 80px 0 #03a9f4, 100px 80px 0 #ffffff, 110px 80px 0 #03a9f4, 120px 80px 0 #3f51b5, 30px 90px 0 #3f51b5, 40px 90px 0 #3f51b5, 50px 90px 0 #3f51b5, 60px 90px 0 #3f51b5, 70px 90px 0 #3f51b5, 80px 90px 0 #03a9f4, 90px 90px 0 #ffffff, 100px 90px 0 #ffffff, 110px 90px 0 #03a9f4, 120px 90px 0 #3f51b5, 30px 100px 0 #3f51b5, 40px 100px 0 #3f51b5, 50px 100px 0 #3f51b5, 60px 100px 0 #3f51b5, 70px 100px 0 #3f51b5, 80px 100px 0 #03a9f4, 90px 100px 0 #ffffff, 100px 100px 0 #ffffff, 110px 100px 0 #03a9f4, 120px 100px 0 #3f51b5, 30px 110px 0 #3f51b5, 40px 110px 0 #3f51b5, 50px 110px 0 #3f51b5, 60px 110px 0 #3f51b5, 70px 110px 0 #3f51b5, 80px 110px 0 #03a9f4, 90px 110px 0 #03a9f4, 100px 110px 0 #03a9f4, 110px 110px 0 #03a9f4, 120px 110px 0 #3f51b5, 30px 120px 0 #3f51b5, 40px 120px 0 #3f51b5, 50px 120px 0 #3f51b5, 60px 120px 0 #3f51b5, 70px 120px 0 #3f51b5, 80px 120px 0 #3f51b5, 90px 120px 0 #03a9f4, 100px 120px 0 #03a9f4, 110px 120px 0 #3f51b5, 120px 120px 0 #3f51b5, 40px 130px 0 #3f51b5, 50px 130px 0 #3f51b5, 60px 130px 0 #3f51b5, 70px 130px 0 #3f51b5, 80px 130px 0 #3f51b5, 90px 130px 0 #03a9f4, 100px 130px 0 #03a9f4, 110px 130px 0 #3f51b5, 40px 140px 0 #3f51b5, 50px 140px 0 #3f51b5, 60px 140px 0 #3f51b5, 70px 140px 0 #3f51b5, 80px 140px 0 #3f51b5, 90px 140px 0 #03a9f4, 100px 140px 0 #03a9f4, 110px 140px 0 #3f51b5, 50px 150px 0 #3f51b5, 60px 150px 0 #3f51b5, 70px 150px 0 #3f51b5, 80px 150px 0 #3f51b5, 90px 150px 0 #3f51b5, 100px 150px 0 #3f51b5, 50px 160px 0 #3f51b5, 60px 160px 0 #3f51b5, 70px 160px 0 #3f51b5, 80px 160px 0 #3f51b5, 90px 160px 0 #3f51b5, 100px 160px 0 #3f51b5, 60px 170px 0 #3f51b5, 70px 170px 0 #3f51b5, 80px 170px 0 #3f51b5, 90px 170px 0 #3f51b5, 60px 180px 0 #3f51b5, 70px 180px 0 #3f51b5, 80px 180px 0 #3f51b5, 90px 180px 0 #3f51b5, 70px 190px 0 #3f51b5, 80px 190px 0 #3f51b5;
+		} 
+		.green { 
+		box-shadow:  60px 10px 0 #4caf50, 70px 10px 0 #4caf50, 80px 10px 0 #4caf50, 90px 10px 0 #4caf50, 60px 20px 0 #4caf50, 70px 20px 0 #4caf50, 80px 20px 0 #4caf50, 90px 20px 0 #4caf50, 60px 30px 0 #4caf50, 70px 30px 0 #4caf50, 80px 30px 0 #4caf50, 90px 30px 0 #4caf50, 50px 40px 0 #8bc34a, 60px 40px 0 #8bc34a, 70px 40px 0 #8bc34a, 80px 40px 0 #8bc34a, 90px 40px 0 #8bc34a, 100px 40px 0 #8bc34a, 40px 50px 0 #8bc34a, 50px 50px 0 #8bc34a, 60px 50px 0 #8bc34a, 70px 50px 0 #8bc34a, 80px 50px 0 #8bc34a, 90px 50px 0 #8bc34a, 100px 50px 0 #8bc34a, 110px 50px 0 #8bc34a, 40px 60px 0 #8bc34a, 50px 60px 0 #8bc34a, 60px 60px 0 #8bc34a, 70px 60px 0 #8bc34a, 80px 60px 0 #8bc34a, 90px 60px 0 #8bc34a, 100px 60px 0 #8bc34a, 110px 60px 0 #8bc34a, 30px 70px 0 #8bc34a, 40px 70px 0 #8bc34a, 50px 70px 0 #8bc34a, 60px 70px 0 #8bc34a, 70px 70px 0 #8bc34a, 80px 70px 0 #8bc34a, 90px 70px 0 #9ee07a, 100px 70px 0 #9ee07a, 110px 70px 0 #8bc34a, 120px 70px 0 #8bc34a, 30px 80px 0 #8bc34a, 40px 80px 0 #8bc34a, 50px 80px 0 #8bc34a, 60px 80px 0 #8bc34a, 70px 80px 0 #8bc34a, 80px 80px 0 #9ee07a, 90px 80px 0 #9ee07a, 100px 80px 0 #ffffff, 110px 80px 0 #9ee07a, 120px 80px 0 #8bc34a, 30px 90px 0 #8bc34a, 40px 90px 0 #8bc34a, 50px 90px 0 #8bc34a, 60px 90px 0 #8bc34a, 70px 90px 0 #8bc34a, 80px 90px 0 #9ee07a, 90px 90px 0 #ffffff, 100px 90px 0 #ffffff, 110px 90px 0 #9ee07a, 120px 90px 0 #8bc34a, 30px 100px 0 #8bc34a, 40px 100px 0 #8bc34a, 50px 100px 0 #8bc34a, 60px 100px 0 #8bc34a, 70px 100px 0 #8bc34a, 80px 100px 0 #9ee07a, 90px 100px 0 #ffffff, 100px 100px 0 #ffffff, 110px 100px 0 #9ee07a, 120px 100px 0 #8bc34a, 30px 110px 0 #8bc34a, 40px 110px 0 #8bc34a, 50px 110px 0 #8bc34a, 60px 110px 0 #8bc34a, 70px 110px 0 #8bc34a, 80px 110px 0 #9ee07a, 90px 110px 0 #9ee07a, 100px 110px 0 #9ee07a, 110px 110px 0 #9ee07a, 120px 110px 0 #8bc34a, 30px 120px 0 #8bc34a, 40px 120px 0 #8bc34a, 50px 120px 0 #8bc34a, 60px 120px 0 #8bc34a, 70px 120px 0 #8bc34a, 80px 120px 0 #8bc34a, 90px 120px 0 #9ee07a, 100px 120px 0 #9ee07a, 110px 120px 0 #8bc34a, 120px 120px 0 #8bc34a, 40px 130px 0 #8bc34a, 50px 130px 0 #8bc34a, 60px 130px 0 #8bc34a, 70px 130px 0 #8bc34a, 80px 130px 0 #8bc34a, 90px 130px 0 #9ee07a, 100px 130px 0 #9ee07a, 110px 130px 0 #8bc34a, 40px 140px 0 #8bc34a, 50px 140px 0 #8bc34a, 60px 140px 0 #8bc34a, 70px 140px 0 #8bc34a, 80px 140px 0 #8bc34a, 90px 140px 0 #9ee07a, 100px 140px 0 #9ee07a, 110px 140px 0 #8bc34a, 50px 150px 0 #8bc34a, 60px 150px 0 #8bc34a, 70px 150px 0 #8bc34a, 80px 150px 0 #8bc34a, 90px 150px 0 #8bc34a, 100px 150px 0 #8bc34a, 50px 160px 0 #8bc34a, 60px 160px 0 #8bc34a, 70px 160px 0 #8bc34a, 80px 160px 0 #8bc34a, 90px 160px 0 #8bc34a, 100px 160px 0 #8bc34a, 60px 170px 0 #8bc34a, 70px 170px 0 #8bc34a, 80px 170px 0 #8bc34a, 90px 170px 0 #8bc34a, 60px 180px 0 #8bc34a, 70px 180px 0 #8bc34a, 80px 180px 0 #8bc34a, 90px 180px 0 #8bc34a, 70px 190px 0 #8bc34a, 80px 190px 0 #8bc34a;
+		} 
+		header { margin-top: -30px; height: 12%; width: 100%;  position: relative; z-index: 10; }
+
+		#l2, #l3, #l4, #l5, #l6, #l7, #l8 {  }
+		
+		.oldLight { height: 150px; width: 50px; background:#D4D322; margin: 0 2.5%; float: left; top: 0px; }
+		
+		.menu { height: 90%; width: 90%; margin: 5%; display: none; position: absolute; }
+		.menu1 { background:purple; }
+		.menu2 { background:blue; }
+		.menu3 { background:green; }
 		
 		.cookie { height: 200px; width: 350px; background-color: brown; margin-top: -50px}
 		.crumbsHolder { height: 768px; width: 1024px; position: absolute;  display: none; z-index: 1000; pointer-events: none;}
@@ -83,8 +123,12 @@
 		.crumb04 { top: 85%; left: 80%; }
 		
 		.background {height: 100%; width: 100%; position: fixed; z-index: 0; background-image: url("xmas-bg.jpg"); background-repeat: repeat;}
+		#left { float: left; width: 45%; height: 88%; position: relative; margin-top: 12%; }
+		#right { float: right; width: 55%; height: 88%; background:#23232b; position: relative; margin-top: -3%; }
+		footer { height: 0%; width: 80%; margin-left: 10%; position: absolute; bottom: 0px; /*background:#110BAA*/ }
 		
-		.santaArt { width: 100%; height: 100%; position: absolute; }
+		.santaFull { height: 85%; width: 80%; margin: 15% 10% 0; }
+		.santaArt { width: 100%; height: 100%; position: absolute; top: 0px; }
 		.face { z-index: 5; }
 		.brows { z-index: 8;  }
 		.mouth { z-index: 6;  }
@@ -97,9 +141,12 @@
 		var tlPre = new TimelineMax({delay:0.5, onComplete:endPre});
 		var $preLoader = $('.preLoader');
 		var $preImg = $('.preLoader img');
-		var $preText = $('.preText')
+		var $preText = $('.preText');
+		var $lightsPre = $('.light');
 
-		 tlPre.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
+		 tlPre
+			.set($lightsPre, {y: '-180px'})
+			.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
 			.to($preText, 1, {autoAlpha:1, repeat:5, yoyo: true, ease: SteppedEase.config(4)})
 			.to($preImg, 1, {autoAlpha:0, ease: SteppedEase.config(4)})
 			.to($preLoader, 1, {autoAlpha:0, ease: SteppedEase.config(4)});
@@ -107,6 +154,7 @@
 		 function endPre() {
 			$preLoader.hide();
 			console.log("it's OVER!!!");
+			init();
 		 }
 	
 		var $crumbs = $('.crumbs');
@@ -125,21 +173,28 @@
 		})
 		
 		$('#l2').click(function(){
-			$('#menu1').css('display', 'block');
-			$('#menu2').css('display', 'none');
-			$('#menu3').css('display', 'none');
+			$('.menu1').css('display', 'block');
+			$('.menu2').css('display', 'none');
+			$('.menu3').css('display', 'none');
 		})
 		$('#l3').click(function(){
-			$('#menu1').css('display', 'none');
-			$('#menu2').css('display', 'block');
-			$('#menu3').css('display', 'none');
+			$('.menu1').css('display', 'none');
+			$('.menu2').css('display', 'block');
+			$('.menu3').css('display', 'none');
 		})
 		$('#l4').click(function(){
-			$('#menu1').css('display', 'none');
-			$('#menu2').css('display', 'none');
-			$('#menu3').css('display', 'block');
+			$('.menu1').css('display', 'none');
+			$('.menu2').css('display', 'none');
+			$('.menu3').css('display', 'block');
 		})
 	
+	function init() {
+	  var $lights = $('.light').toArray();
+	  //TweenMax.set($lights, {y: '-100px'});
+	  $lights.sort(function(){return 0.5-Math.random()});
+	  TweenMax.staggerTo($lights, 1.2, {y: '0px', ease: Elastic.easeOut}, 0.05);
+	} 
+	  
 	</script>
 
 </body>
