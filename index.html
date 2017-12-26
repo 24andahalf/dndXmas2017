@@ -11,6 +11,24 @@
 </head>
 
 <body style="width: 1024px; height: 768px; background: #7C5152; overflow: hidden;">
+
+	<audio class="santaVoice" src="audio/introSpeech.mp3" autostart="false"></audio>
+	<audio class="santaVoice" src="audio/introSpeech2.mp3" autostart="false"></audio>
+	<audio class="santaVoice" src="audio/introSpeech3.mp3" autostart="false"></audio>
+	<audio class="santaVoice" src="audio/introSpeech4.mp3" autostart="false"></audio>
+	
+	<audio class="answers" src="audio/answer1.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer2.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer3.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer4.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer5.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer6.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer7.mp3" autostart="false"></audio>
+	<audio class="answers" src="audio/answer8.mp3" autostart="false"></audio>
+	
+	<div class="olPast"><span>Christmas Past</span></div>
+	<div class="olPresent"><span>Christmas Present</span></div>
+	<div class="olFuture"><span>Christmas Yet To Come</span></div>
 	
 	<div class="preLoader">
 		<img src="preLoader.gif">
@@ -50,7 +68,7 @@
 	</header>
 
 	<container id="left" >
-		<div class="santaFull" ">
+		<div class="santaFull">
 			<div class="santaArt face"> <img class="santaArt" style="height: auto !important ;" src="images/face.png"> </div>
 			<div class="santaArt stache"> <img class="santaArt" style="height: auto !important ;" src="images/stache.png"> </div>
 			<div class="santaArt brows"> <img class="santaArt" style="height: auto !important ;" src="images/brow.png"> </div>
@@ -60,14 +78,12 @@
 	
 	<container id="right" >
 		<div class="menu menu1" >
-			<div class="mbutton1" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
-			<div class="mbutton2" style="margin: 10%; background-color: #6C1618; float: left; width: 30%; height: 25%"></div>
-			<div class="mbutton3" style="margin: 0% 35%; background-color: #6C1618; float: left; width: 30%; height: 40%"></div>
+			<div class="mbutton1 button" ><span>Christmas Past</span></div>
+			<div class="mbutton2 button" ><span>Christmas Present</span></div>
+			<div class="mbutton3 button" ><span>Christmas Yet To Come</span></div>
+			<div class="mbutton4 button" style="display: none;"><span>Scrooge</span></div>
+			
 		</div>
-		
-		<div class="menu menu2" ></div>
-		
-		<div class="menu menu3" ></div>
 	</container>
 
 	<footer> 
@@ -79,8 +95,10 @@
 		* {margin: 0; padding: 0;}
 		
 		.preLoader { position: absolute; z-index: 50; height: 100%; width: 100%; background-color: white;}
-		.preText { left: 50%; top: 50%; font-size: 48px; opacity: 0; position: absolute; transform: translate(-50%, -50%); font-family: 'VT323', monospace;}
-		.preLoader img { top: 50%; left: 50%; transform: translate(-50%, -30%); position: absolute; opacity:0;}
+		.preText { left: 41%; top: 30%; font-size: 48px; opacity: 0; position: absolute;}
+		.preLoader img { top: 20%; left: 25%; position: absolute; opacity:0;}
+		
+		* {font-family: 'VT323', monospace;}
 		
 		.light { 
 		  height: 10px;
@@ -110,11 +128,14 @@
 		.oldLight { height: 150px; width: 50px; background:#D4D322; margin: 0 2.5%; float: left; top: 0px; }
 		
 		.menu { height: 90%; width: 90%; margin: 5%; display: none; position: absolute; }
-		.menu1 { background:purple; }
-		.menu2 { background:blue; }
-		.menu3 { background:green; }
+		.menu1 { background:darkred; }
+		.mbutton1, .mbutton2, .mbutton3, .mbutton4 { position: relative; color: white; font-size: 1.5em; margin: 10%; background-color: rgba(0,0,0,0.2); border: solid 2px black; width: 30%; height: 25%; float: left; box-sizing: border-box; opacity: 0;}
+		.clicked { pointer-events; none; }
+		span { margin-top: 23%; display: block; text-align: center;}
 		
-		.cookie { height: 200px; width: 350px; background-color: brown; margin-top: -50px}
+		.olPast, .olPresent, .olFuture { position: absolute; background-color: black; height: 100%; width: 100%; color: white; font-size: 6em; text-align: center; display: none; z-index: 100; } 
+		
+		.cookie { height: 200px; width: 350px;  margin-top: -50px}
 		.crumbsHolder { height: 768px; width: 1024px; position: absolute;  display: none; z-index: 1000; pointer-events: none;}
 		.crumbs { height: 100px; width: 100px; background-color: brown ; border-radius: 100%; position: absolute; pointer-events: all;}
 		.crumb01 { top: 15%; left: 65%; }
@@ -124,7 +145,7 @@
 		
 		.background {height: 100%; width: 100%; position: fixed; z-index: 0; background-image: url("xmas-bg.jpg"); background-repeat: repeat;}
 		#left { float: left; width: 45%; height: 88%; position: relative; margin-top: 12%; }
-		#right { float: right; width: 55%; height: 88%; background:#23232b; position: relative; margin-top: -3%; }
+		#right { float: right; width: 55%; height: 70%; background:#23232b; position: relative; margin-top: 11%; }
 		footer { height: 0%; width: 80%; margin-left: 10%; position: absolute; bottom: 0px; /*background:#110BAA*/ }
 		
 		.santaFull { height: 85%; width: 80%; margin: 15% 10% 0; }
@@ -139,10 +160,84 @@
 	<script>
 	
 		var tlPre = new TimelineMax({delay:0.5, onComplete:endPre});
+		var tlIntro1 = new TimelineMax({paused: true, onComplete: intro2 });
+		var tlIntro2 = new TimelineMax({paused: true, onComplete: intro3 });
+		var tlIntro3 = new TimelineMax({paused: true});
+		var tlIntro4 = new TimelineMax({paused: true });
+		var tlTalkAnim = new TimelineMax({paused: true});
+		var tlPast = new TimelineMax({paused: true});
+		var tlPresent = new TimelineMax({paused: true});
+		var tlFuture = new TimelineMax({paused: true});
 		var $preLoader = $('.preLoader');
 		var $preImg = $('.preLoader img');
 		var $preText = $('.preText');
 		var $lightsPre = $('.light');
+		var $menu = $('.menu1');
+		var $mouth = $('.mouth');
+		var santaTalking = false;
+		var $olPast = $('.olPast'); 
+		var $olPresent = $('.olPresent'); 
+		var $olFuture = $('.olFuture'); 
+		var introSpeech1 = $('.santaVoice')[0];
+		introSpeech1.onended = function() {
+			console.log("Introspeech1 has ended");
+			tlTalkAnim.restart().pause();
+			tlIntro1.play();
+		}
+		var introSpeech2 = $('.santaVoice')[1];
+		introSpeech2.onended = function() {
+			tlTalkAnim.restart().pause();
+			tlIntro2.play();
+		}
+		var introSpeech3 = $('.santaVoice')[2];
+		introSpeech3.onended = function() {
+			tlTalkAnim.restart().pause();
+			tlIntro3.play();
+		}
+		var introSpeech4 = $('.santaVoice')[3];
+		introSpeech4.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		
+		var answer1 = $('.answers')[0];
+		answer1.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer2 = $('.answers')[1];
+		answer2.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer3 = $('.answers')[2];
+		answer3.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer4 = $('.answers')[3];
+		answer4.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer5 = $('.answers')[4];
+		answer5.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer6 = $('.answers')[5];
+		answer6.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer7 = $('.answers')[6];
+		answer7.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		var answer8 = $('.answers')[7];
+		answer8.onended = function() {
+			tlTalkAnim.restart().pause();
+		}
+		
+		
+		while (santaTalking == true) {
+			// play santa talking anim
+			tlTalkAnim.play();
+		}
+		
 
 		 tlPre
 			.set($lightsPre, {y: '-180px'})
@@ -150,6 +245,74 @@
 			.to($preText, 1, {autoAlpha:1, repeat:5, yoyo: true, ease: SteppedEase.config(4)})
 			.to($preImg, 1, {autoAlpha:0, ease: SteppedEase.config(4)})
 			.to($preLoader, 1, {autoAlpha:0, ease: SteppedEase.config(4)});
+		
+		tlTalkAnim	
+			.to($mouth, 1, {y: '+=50px', ease: SteppedEase.config(4), repeat:-1, yoyo:true});
+			
+		tlPast
+			.set($olPast, {display: 'block', opacity: '0'})
+			.to($olPast, 2, {opacity: 1, ease: SteppedEase.config(8), onComplete: pausePast})
+			.to($olPast, 2, {opacity: 0, ease: SteppedEase.config(8)}, '+=1')
+			.set($olPast, {display: 'none'})
+			
+		tlPresent
+			.set($olPresent, {display: 'block', opacity: '0'})
+			.to($olPresent, 2, {opacity: 1, ease: SteppedEase.config(8), onComplete: pausePresent})
+			.to($olPresent, 2, {opacity: 0, ease: SteppedEase.config(8)}, '+=1')
+			.set($olPresent, {display: 'none'})
+
+		tlFuture
+			.set($olFuture, {display: 'block', opacity: '0'})
+			.to($olFuture, 2, {opacity: 1, ease: SteppedEase.config(8), onComplete: pauseFuture})
+			.to($olFuture, 2, {opacity: 0, ease: SteppedEase.config(8)}, '+=1')
+			.set($olFuture, {display: 'none'});
+
+		tlIntro1
+			.set($menu, {display: 'block', opacity: '0'})
+			.to($menu, 1, {opacity: 1, ease: SteppedEase.config(4)});
+		
+		tlIntro2
+			.to($('.button'), 1, {opacity: 1, ease: SteppedEase.config(4)});
+		
+		tlIntro3
+			.to($('footer'), 1, { height: '20%' } ); 
+		
+		/*tlIntro4
+			.set($menu, {display: 'block', opacity: '0'})
+			.to($menu, 1, {opacity: 1, ease: SteppedEase.config(4)});
+		*/	
+		 
+		 function intro1() {
+			introSpeech1.play();
+			tlTalkAnim.play();
+		 }
+		 function intro2() {
+			introSpeech2.play();
+			tlTalkAnim.play();
+		 }
+		 function intro3() {
+			introSpeech3.play();
+			tlTalkAnim.play();
+		 }
+		 function intro4() {
+			introSpeech4.play();
+			tlTalkAnim.play();
+		 }
+		 
+		 function pausePast() {
+			tlPast.pause();
+			$('.mbutton1').addClass('clicked');
+		 }
+		 
+		 function pausePresent() {
+			tlPresent.pause();
+			$('.mbutton2').addClass('clicked');
+		 }
+		 
+		 function pauseFuture() {
+			tlFuture.pause();
+			$('.mbutton3').addClass('clicked');
+		 }
 		 
 		 function endPre() {
 			$preLoader.hide();
@@ -160,40 +323,88 @@
 		var $crumbs = $('.crumbs');
 	
 		$('.cookie').click(function(){
-			//TweenLite.to($('footer'), 1, { height: '0%' } ); 
-			$('.cookie').hide();
-			$('.crumbsHolder').show();
-			TweenMax.staggerFrom($crumbs, 0.9, {scale:2, y: '-300%', autoAlpha: 0, ease:Bounce.easeOut}, 0.2, pepCrumbs);
-		})
-		function pepCrumbs (){
-			$('.crumbs').pep();
+				intro4();		
+		});
+		
+		$('.mbutton1').click(function() {
+			tlPast.play();
+		});
+		
+		$('.mbutton2').click(function() {
+			tlPresent.play();
+		});
+		
+		$('.mbutton3').click(function() {
+			tlFuture.play();
+		});
+		
+		function crumbsAudio() {
+			// play crumbs audio
+			removeCrumbs();
 		}
-		$('#l7').click(function(){
-			TweenLite.to($('footer'), 1, { height: '10%' } ); 
+		
+		function removeCrumbs() {
+			$('.crumbsHolder').fadeOut();
+		}
+		
+		function santaStartPose() {
+			// return santa to start pose
+		}
+		
+		
+		$('#l1').click(function(){
+			answer1.play();
 		})
 		
 		$('#l2').click(function(){
-			$('.menu1').css('display', 'block');
-			$('.menu2').css('display', 'none');
-			$('.menu3').css('display', 'none');
+			answer2.play();
 		})
 		$('#l3').click(function(){
-			$('.menu1').css('display', 'none');
-			$('.menu2').css('display', 'block');
-			$('.menu3').css('display', 'none');
+			answer3.play();
 		})
 		$('#l4').click(function(){
-			$('.menu1').css('display', 'none');
-			$('.menu2').css('display', 'none');
-			$('.menu3').css('display', 'block');
+			answer4.play();
+		})
+		
+		$('#l5').click(function(){
+			answer5.play();
+		})
+		
+		$('#l6').click(function(){
+			answer6.play();
+		})
+		
+		$('#l7').click(function(){
+			answer7.play();
+		})
+		
+		$('#l8').click(function(){
+			answer8.play();
+		})
+		
+		$olPast.click(function(){
+			tlPast.play();
+		})
+		
+		$olPresent.click(function(){
+			tlPresent.play();
+		})
+		
+		$olFuture.click(function(){
+			tlFuture.play();
 		})
 	
 	function init() {
 	  var $lights = $('.light').toArray();
 	  //TweenMax.set($lights, {y: '-100px'});
 	  $lights.sort(function(){return 0.5-Math.random()});
-	  TweenMax.staggerTo($lights, 1.2, {y: '0px', ease: Elastic.easeOut}, 0.05);
+	  TweenMax.staggerTo($lights, 1.2, {y: '0px', ease: Elastic.easeOut, onComplete: startIntro}, 0.05);
+	  
 	} 
+	
+	function startIntro() {
+		intro1();
+	}
 	  
 	</script>
 
