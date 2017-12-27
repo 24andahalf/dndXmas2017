@@ -158,6 +158,17 @@
 	</style>
 	
 	<script>
+	$( window ).load(function(){
+	
+	var tlPre = new TimelineMax({delay:0.5});
+	
+	tlPre
+	.set($lightsPre, {y: '-180px'})
+	.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
+	.to($preText, 1, {autoAlpha:1, repeat:-1, yoyo: true, ease: SteppedEase.config(4)});
+	
+	});	
+		
 	$( document ).ready(function(){
 		var tlPreEnd = new TimelineMax({onComplete: endPre});
 		var tlIntro1 = new TimelineMax({paused: true, onComplete: intro2 });
@@ -413,16 +424,7 @@
 		intro1();
 	}
 	});
-	$(window).load(function(){
 	
-	var tlPre = new TimelineMax({delay:0.5});
-	
-	tlPre
-	.set($lightsPre, {y: '-180px'})
-	.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
-	.to($preText, 1, {autoAlpha:1, repeat:-1, yoyo: true, ease: SteppedEase.config(4)});
-	
-	});
 	</script>
 
 </body>
