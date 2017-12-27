@@ -162,16 +162,7 @@
 		
 	$( document ).ready(function(){
 		
-		$( window ).load(function(){
-	
-			var tlPre = new TimelineMax({delay:0.5});
-
-			tlPre
-			.set($lightsPre, {y: '-180px'})
-			.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
-			.to($preText, 1, {autoAlpha:1, repeat:-1, yoyo: true, ease: SteppedEase.config(4)});
-
-		});		
+			alert("document ready occurred!");	
 		
 		
 		
@@ -430,6 +421,17 @@
 		intro1();
 	}
 	});
+		$(window).load(function() {
+	
+			var tlPre = new TimelineMax({delay:0.5});
+
+			tlPre
+			.set($lightsPre, {y: '-180px'})
+			.to($preImg, 1, {autoAlpha:1, ease: SteppedEase.config(4)})
+			.to($preText, 1, {autoAlpha:1, repeat:-1, yoyo: true, ease: SteppedEase.config(4)});
+
+		alert("window load occurred!");
+		});
 	
 	</script>
 
